@@ -8,7 +8,7 @@ SELECT title FROM hardware WHERE amount = 0;
 SELECT AVG(price) FROM hardware WHERE title LIKE '%Монитор%';
 
 -- Задача 4: Вывести все клавиатуры, отсортированные от самой дешевой до самой дорогой
-SELECT title, price FROM hardware WHERE title LIKE '%Клавиатура%' ORDER BY price;
+SELECT title, price FROM hardware WHERE title LIKE '%Клавиатура%' ORDER BY price ASC;
 
 -- Задача 5: Вывести количество товарных позиций по каждому тегу с использованием группировки
 SELECT tag, COUNT(*) AS tag_count
@@ -32,4 +32,4 @@ INSERT INTO hardware (title, price, amount, tag)
 VALUES ('Ноутбук Lenovo 2BXKQ7E9XD', 54500, 1, 'new');
 
 -- Задача 9: Найти и удалить по названию ошибочно добавленный товар "Очки PS VR 2"
-DELETE FROM hardware WHERE title = 'Очки PS VR 2';
+DELETE FROM hardware WHERE title = 'Очки PS VR 2' id IS NOT NULL;
