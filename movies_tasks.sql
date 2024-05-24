@@ -73,7 +73,7 @@ FROM movies
 JOIN genres ON movies.genre_id = genres.id
 GROUP BY genres.title;
 
---10
+-- 10
 
 DELETE FROM movies 
 WHERE id IN (
