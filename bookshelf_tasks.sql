@@ -21,7 +21,10 @@ limit 5;
 select count(books.shelves_id) 
 from shelves
 join books on shelves.id = books.shelves_id
-where shelves_id = 1
+where shelves_id = (
+    select id from shelves
+   where shelves.title = "Полка в кабинете"
+    )
 
 
 -- 4 задание
@@ -58,10 +61,13 @@ join authors
 join authors_books on books.id = authors_books.books_id and authors.id = authors_books.authors_id
 where shelves.title like '%Верхняя%' or shelves.title like '%Нижняя%'
 
--- 8 задание (не понял в чём проблема)
+-- 8 задание 
 
 update books
-set friends_id = '1'
+set friends_id = (
+select id from friends
+where friends.name = 'Иванов Иван'
+)
 where id = 9
 
 -- 9 задание
