@@ -68,7 +68,17 @@ set friends_id = (
 select id from friends
 where friends.name = 'Иванов Иван'
 )
-where id = 9
+where id = (
+    select books.id
+    from books
+    join authors_books on books.id = authors_books.books_id
+    join authors on authors.id = authors_books.authors_id
+    where
+    books.title = "Божественная комедия"
+    and
+    authors.name = "Данте Алигьери"
+    
+)
 
 -- 9 задание
 INSERT INTO books (title, year, shelves_id)
